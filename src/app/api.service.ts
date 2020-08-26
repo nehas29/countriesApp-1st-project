@@ -27,6 +27,34 @@ export class ApiService {
      console.log(myResponse);
      return myResponse;
   }
+
+   //method to get all countries of africa region
+   public getAfricanCountries(): any {
+    let myResponse = this._http.get(this.baseUrl+'/region/africa');
+    console.log(myResponse);
+    return myResponse;
+ }
+
+ //method to get all countries of australia region
+ public getAustraliaCountries(): any {
+  let myResponse = this._http.get(this.baseUrl+'/region/oceania');
+  console.log(myResponse);
+  return myResponse;
+}
+
+//method to get all countries of europe region
+public getEuropeCountries(): any {
+  let myResponse = this._http.get(this.baseUrl+'/region/europe');
+  console.log(myResponse);
+  return myResponse;
+}
+
+//method to get all countries of america region
+public getAmericaCountries(): any {
+  let myResponse = this._http.get(this.baseUrl+'/region/Americas');
+  console.log(myResponse);
+  return myResponse;
+}
   //method to get information of single  country 
   public getCountryInfo(countryName): any {
     
@@ -35,6 +63,26 @@ export class ApiService {
     return myResponse;   
 
   }
+
+  //method to get countries having of specific language
+  public getCountriesFromlanguage(languagCode: string): any {
+    
+    let myResponse = this._http.get(this.baseUrl+'/lang/'+languagCode);
+    console.log(myResponse);
+    return myResponse;   
+
+  }
+
+  //method to get countries having of specific currency
+  public getCountriesFromCurrency(currencyCode: string): any {
+    
+    let myResponse = this._http.get(this.baseUrl+'/currency/'+currencyCode);
+    console.log(myResponse);
+    return myResponse;   
+
+  }
+
+  
 
 
  

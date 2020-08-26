@@ -14,6 +14,8 @@ import { AustraliaComponent } from './australia/australia.component';
 import { AfricaComponent } from './africa/africa.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LangFilterCounteriesComponent } from './lang-filter-counteries/lang-filter-counteries.component';
+import { CurrFilterCounteriesComponent } from './curr-filter-counteries/curr-filter-counteries.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     NorthAmericaComponent,
     SouthAmericaComponent,
     AustraliaComponent,
-    AfricaComponent
+    AfricaComponent,
+    LangFilterCounteriesComponent,
+    CurrFilterCounteriesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     {path:'southamerica', component:SouthAmericaComponent},
     {path:'australia', component:AustraliaComponent},
     {path:'africa', component:AfricaComponent},
+    {path:'language/:iso639_1', component:LangFilterCounteriesComponent},
+    {path:'currency/:code', component:CurrFilterCounteriesComponent},
     {path:'**', component:NotFoundComponent},
 
     ])
