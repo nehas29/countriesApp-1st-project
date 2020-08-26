@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row" *ngIf="currentCountryInformation.length > 0">
+      <div *ngFor="let country of currentCountryInformation" >
+        
+        <div class="container-fluid ">
+          <div class="row">
+              <div class="col">
+                  
+                      <img src="{{country.flag}}" class="img-fluid  "   alt="A generic square placeholder image with rounded corners in a figure." >
+                      
+  
+              </div>
+            </div>
+              <div class="row justify-content-around ">
+                
+                    
+                  <h3>{{country.name}}</h3>      
+                       
+                  
+          </div>
+  
+  
+  
+      
+
+      </div>
+    
+    </div>
+  </div>

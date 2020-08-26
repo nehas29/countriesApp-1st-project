@@ -1,0 +1,28 @@
+.education-title {
+    color: #ec9412;
+    margin: 4px 0 !important;
+    font-weight: 700;
+}
+.card-title {
+    position:absolute; 
+    bottom:10px;
+    
+}
+.style1 {
+    margin-bottom : 1rem ;
+    
+}
+.box {
+    transition: box-shadow .3s;
+    
+    
+    
+    border: 1px solid #ccc;
+    background: #fff;
+    
+    
+  }
+  .box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+    
