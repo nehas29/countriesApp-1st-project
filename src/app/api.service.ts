@@ -10,6 +10,7 @@ import { tap } from 'rxjs/operators';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,13 @@ export class ApiService {
   constructor(private _http:HttpClient) { 
     console.log ('Service called')
   }
+
+   //method to get all countries 
+   public getAllCountries(): any {
+    let myResponse = this._http.get(this.baseUrl+'/all'+'?fields=name');
+    console.log(myResponse);
+    return myResponse;
+ }
 
   //method to get all countries of asia region
   public getAsianCountries(): any {

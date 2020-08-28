@@ -1,29 +1,56 @@
-<div class="container">
-    <div class="row" *ngIf="currentCountryInformation.length > 0">
-      <div *ngFor="let country of currentCountryInformation" >
-        
-        <div class="container-fluid ">
-          <div class="row">
-              <div class="col">
+<div class="container" *ngIf="currentCountryInformation.length > 0" >
+  <br><br><br>
+  <div class="container-fluid" *ngFor="let country of currentCountryInformation">
+    
+    <div class="row" >
+      <div class=" col-md-6 col-12">
+        <h1 class="display-4 margin-top-5">{{country.name}}</h1>
+      </div>
+      <div class="col-md-6 col-12 d-flex justify-content-end align-items-end fixed">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="padding:5px" (click)="goBackToPreviousPage()"> 
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.646 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+        </svg>
+      </div> 
+    </div>
+  
+    <div class="row">
                   
-                      <img src="{{country.flag}}" class="img-fluid  "   alt="A generic square placeholder image with rounded corners in a figure." >
+        <img src="{{country.flag}}" class="img-fluid  "   alt="A generic square placeholder image with rounded corners in a figure." >
                       
   
-              </div>
-            </div>
-              <div class="row justify-content-around ">
-                
-                    
-                  <h3>{{country.name}}</h3>      
-                       
-                  
-          </div>
+    </div>
+            
+      <div class="row justify-content-around ">
+        <div class="col">
+        <P class="textsize"><span class="bolder">Capital</span><span > : {{country.capital}}</span> 
+        <br><span class="bolder">Alpha2Code</span><span > : {{country.alpha2Code}}</span> 
+        <br> <span class="bolder">Alpha3Code</span><span > : {{country.alpha3Code}}</span>
+        <br><span class="bolder">CallingCodes</span><span > : {{country.callingCodes}}</span></P>                         
+        </div> 
+        <div class="col">
+          <P class="textsize"><span class="bolder">Region</span><span > : {{country.region}}</span> 
+          <br><span class="bolder">Subregion</span><span > : {{country.subregion}}</span> 
+          <br> <span class="bolder">Population</span><span > : {{country.population}}</span>
+          <br><span class="bolder">Area</span><span > : {{country.area}}</span></P>                         
+          </div>    
+          <div class="col">
+            <P class="textsize"><span class="bolder">Countries sharing border with {{country.name}}</span><span > : {{country.borders}}</span> 
+            <br><span class="bolder">Timezones</span><span > : {{country.timezones}}</span> 
+            <br> <span class="bolder">NativeName</span><span > : {{country.nativeName}}</span>
+            <br><span class="bolder">NumericCode</span><span > : {{country.numericCode}}</span></P>                         
+            </div>  
+            <div class="col">
+              <P class="textsize"><span class="bolder" *ngIf="country.currencies.length>0" >currencies : </span><span *ngFor="let currency of country.currencies;let first=first;let last=last">{{currency.name}}{{last ? '' : ', '}}</span> 
+              <br><span *ngIf="country.languages.length>0" class="bolder">Languages : </span><span *ngFor="let language of country.languages;let first=first;let last=last" >{{language.name}}{{last ? '' : ', '}}</span> 
+              <br> <span *ngIf="country.regionalBlocs.length>0" class="bolder">RegionalBlocs : </span><span *ngFor="let bloc of country.regionalBlocs;let first=first;let last=last" >{{bloc.name}}{{last ? '' : ', '}}</span>
+              
+              </div>       
+        </div>
   
   
   
       
-
+        </div> 
       </div>
     
-    </div>
-  </div>
+    

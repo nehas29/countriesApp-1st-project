@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import{ ActivatedRoute, Router } from "@angular/router"
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-lang-filter-counteries',
   templateUrl: './lang-filter-counteries.component.html',
-  styleUrls: ['./lang-filter-counteries.component.css']
+  styleUrls: ['./lang-filter-counteries.component.css'],
+  providers: [Location]
 })
 export class LangFilterCounteriesComponent implements OnInit {
   public allCountriesSimilarHavinglanguage: any ;
-  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService) { 
+  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService, public location:Location) { 
     console.log("lang-filter-counteries is called")
   }
 
@@ -32,6 +34,11 @@ export class LangFilterCounteriesComponent implements OnInit {
       }
     )
 
+  }
+
+  public goBackToPreviousPage():any{
+
+    this.location.back();
   }
 
 }

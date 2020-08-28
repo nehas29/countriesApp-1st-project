@@ -9,4 +9,12 @@
     height: 100%;
   }
 
-  
+  p{margin-top: 2em;}
+
+  .bolder {
+    font-weight: bolder;
+ }
+ first-alphabet-large::first-letter {
+  font-size: 3rem; }
+.textsize{font-size: 1rem;}
+

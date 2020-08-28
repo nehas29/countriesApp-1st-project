@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Country } from 'src/app/interfaces/country';
 
 @Component({
   selector: 'app-asia',

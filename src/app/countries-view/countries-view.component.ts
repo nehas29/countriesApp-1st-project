@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 //importing route related code
 import{ ActivatedRoute, Router } from "@angular/router"
 import { ApiService } from '../api.service';
+import {Location} from '@angular/common'
 
 
 @Component({
   selector: 'app-countries-view',
   templateUrl: './countries-view.component.html',
-  styleUrls: ['./countries-view.component.css']
+  styleUrls: ['./countries-view.component.css'],
+  providers: [Location]
 })
 export class CountriesViewComponent implements OnInit {
 
   public currentCountryInformation: any;
   
 
-  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService) {
+  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService, public location:Location) {
 
     console.log("constructor is called");
    }
@@ -40,6 +42,9 @@ export class CountriesViewComponent implements OnInit {
     )
   }
 
-  
+  public goBackToPreviousPage():any{
+
+    this.location.back();
+  }
 
 }

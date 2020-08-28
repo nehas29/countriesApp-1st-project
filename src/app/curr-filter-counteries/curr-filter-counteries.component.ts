@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-curr-filter-counteries',
   templateUrl: './curr-filter-counteries.component.html',
-  styleUrls: ['./curr-filter-counteries.component.css']
+  styleUrls: ['./curr-filter-counteries.component.css'],
+  providers: [Location]
 })
 export class CurrFilterCounteriesComponent implements OnInit {
 
   public allCountriesHavingSimilarCurrency: any ;
-  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService) { }
+  constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService, public location:Location) { }
 
   ngOnInit() {
 
@@ -33,6 +35,11 @@ export class CurrFilterCounteriesComponent implements OnInit {
 
 
 
+  }
+
+  public goBackToPreviousPage():any{
+
+    this.location.back();
   }
 
 }

@@ -16,6 +16,9 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LangFilterCounteriesComponent } from './lang-filter-counteries/lang-filter-counteries.component';
 import { CurrFilterCounteriesComponent } from './curr-filter-counteries/curr-filter-counteries.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { FormsModule } from '@angular/forms';
+ 
 
 
 @NgModule({
@@ -31,11 +34,14 @@ import { CurrFilterCounteriesComponent } from './curr-filter-counteries/curr-fil
     AustraliaComponent,
     AfricaComponent,
     LangFilterCounteriesComponent,
-    CurrFilterCounteriesComponent
+    CurrFilterCounteriesComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AutocompleteLibModule,
+    FormsModule,
     RouterModule.forRoot([
     {path:'home', component:RegionalViewComponent},
     {path:'',redirectTo:'home',pathMatch:'full'},
