@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Country } from 'src/app/interfaces/country';
-import { FormsModule } from '@angular/forms';
+
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class AsiaComponent implements OnInit {
   searchFilter: string;
   
 
-  constructor(public apiService:ApiService, public forms:FormsModule) { 
+  constructor(public apiService:ApiService) { 
     console.log("api service called")
   }
 
