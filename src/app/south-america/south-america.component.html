@@ -1,11 +1,17 @@
 <div class="container" style="text-align:center">
-    <br>
+    <br><br><br>
     <div class="row" style="text-align:center">
       <h3 class="col-md-12" style="font-size:22px">Countries In Americas Region </h3>
-      <br><br><br><br>
+      <br>
     </div>
-    <div class="row justify-content-around" style="text-align:center" *ngIf="allAsianCountries.length>0">
-      <div *ngFor="let country of allAsianCountries" >
+    <div class="row justify-content-around " >
+      
+      <input [(ngModel)]="searchFilter" name="searchFilter"  class="form-control mr-sm-2" type="text" placeholder="Search country by name" aria-label="Search"  >
+   
+  </div>
+    <br>
+    <div class="row justify-content-around" style="text-align:center" *ngIf="allAmericanCountries.length>0">
+      <div *ngFor="let country of allAmericanCountries | filterAmerica : searchFilter" >
         
         <div class="card" style="width: 18rem;">
             <img src= '{{country.flag}}' class="card-img-top" alt="...">
@@ -13,7 +19,7 @@
               <h5 class="card-title">{{country.name}}</h5>
               <p class="card-text">Capital : {{country.capital}}</p>
               <p class="card-text">Timezone : {{country.timezones}}</p>
-              <p *ngIf="country.currencies.length>0">Currencies : <span *ngFor="let currency of country.currencies;let first=first;let last=last"><a [routerLink]="['/currency',currency.code]">{{currency.name}}{{last ? '' : ', '}}</a></span></p>
+              <p *ngIf="country.currencies.length>0">Currencies : <span *ngFor="let currency of country.currencies;let first=first;let last=last"><a [routerLink]="['/currency',currency.code || 'all']">{{currency.name}}{{last ? '' : ', '}}</a></span></p>
               <p class="card-text">Subregions : {{country.subregion}}</p>
               <p *ngIf="country.languages.length>0">Languages : <span *ngFor="let language of country.languages;let first=first;let last=last" ><a [routerLink]="['/language',language.iso639_1]">{{language.name}}{{last ? '' : ', '}}</a></span></p>
               <br/><br/><a [routerLink]="['/country',country.name]" class="btn btn-primary">View</a>

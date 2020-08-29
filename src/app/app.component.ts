@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
-import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -15,26 +14,11 @@ export class AppComponent {
   public country: any
   public allCountries: [ ];
   public inputValue: string ;
-constructor(private _route:ActivatedRoute, private router:Router, public apiService:ApiService, public forms:FormsModule){}
+constructor(){}
 ngOnInit() {
 
   console.log("ngoninit is called")
-  this.allCountries = 
-    this.apiService.getAllCountries().subscribe (
-
-      (      data)=>{
-        console.log(data);
-        this.allCountries = data;
-
-      },
-      (      error: { errorMessage: any; })=>{
-        console.log("some error occured");
-        console.log(error.errorMessage)
-      }
-
-
-      
-    )
+  
 
     
     

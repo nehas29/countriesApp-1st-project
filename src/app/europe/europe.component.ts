@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Country } from 'src/app/interfaces/country';
 
 @Component({
   selector: 'app-europe',
@@ -7,19 +8,21 @@ import { ApiService } from '../api.service';
   styleUrls: ['./europe.component.css']
 })
 export class EuropeComponent implements OnInit {
-  public allAsianCountries: any;
+  public allEuropianCountries: Country[];
+  searchFilter: string;
+
   constructor(public apiService:ApiService) { }
 
   ngOnInit() {
 
-    this.allAsianCountries = 
+    this.allEuropianCountries = 
     this.apiService.getEuropeCountries().subscribe (
 
-      data=>{
+      (      data: Country[])=>{
         console.log(data);
-        this.allAsianCountries = data;
+        this.allEuropianCountries = data;
       },
-      error=>{
+      (      error: { errorMessage: any; })=>{
         console.log("some error occured");
         console.log(error.errorMessage)
       }

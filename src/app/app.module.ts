@@ -18,6 +18,12 @@ import { LangFilterCounteriesComponent } from './lang-filter-counteries/lang-fil
 import { CurrFilterCounteriesComponent } from './curr-filter-counteries/curr-filter-counteries.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+import { FilterAfricaPipe } from './filter-africa.pipe';
+import { FilterAmericaPipe } from './filter-america.pipe';
+import { FilterAustraliaPipe } from './filter-australia.pipe';
+import { FilterEuropePipe } from './filter-europe.pipe';
+
  
 
 
@@ -35,6 +41,12 @@ import { FormsModule } from '@angular/forms';
     AfricaComponent,
     LangFilterCounteriesComponent,
     CurrFilterCounteriesComponent,
+    FilterPipe,
+    FilterAfricaPipe,
+    FilterAmericaPipe,
+    FilterAustraliaPipe,
+    FilterEuropePipe,
+    
     
   ],
   imports: [
@@ -42,6 +54,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AutocompleteLibModule,
     FormsModule,
+    
     RouterModule.forRoot([
     {path:'home', component:RegionalViewComponent},
     {path:'',redirectTo:'home',pathMatch:'full'},

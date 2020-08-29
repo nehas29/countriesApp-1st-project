@@ -1,11 +1,17 @@
 <div class="container" style="text-align:center">
-    <br>
+    <br><br><br>
     <div class="row" style="text-align:center">
-      <h3 class="col-md-12" style="font-size:22px">Countries In Asia Region </h3>
-      <br><br><br><br>
+      <h2 class="col-md-12" style="font-size:22px">Countries In Asia Region </h2>
+      <br>
     </div>
+    <div class="row justify-content-around " >
+      
+      <input [(ngModel)]="searchFilter" name="searchFilter"  class="form-control mr-sm-2" type="text" placeholder="Search country by name" aria-label="Search"  >
+   
+  </div>
+    <br>
     <div class="row justify-content-around" style="text-align:center" *ngIf="allAsianCountries.length>0">
-      <div *ngFor="let country of allAsianCountries" >
+      <div *ngFor="let country of allAsianCountries | filter : searchFilter" >
         
         <div class="card" style="width: 18rem;">
             <img src= '{{country.flag}}' class="card-img-top" alt="...">

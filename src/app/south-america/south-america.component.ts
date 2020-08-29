@@ -7,17 +7,17 @@ import { ApiService } from '../api.service';
   styleUrls: ['./south-america.component.css']
 })
 export class SouthAmericaComponent implements OnInit {
-  public allAsianCountries: any;
+  public allAmericanCountries: any;
   constructor(public apiService:ApiService) { }
 
   ngOnInit() {
 
-    this.allAsianCountries = 
+    this.allAmericanCountries = 
     this.apiService.getAmericaCountries().subscribe (
 
       data=>{
         console.log(data);
-        this.allAsianCountries = data;
+        this.allAmericanCountries = data;
       },
       error=>{
         console.log("some error occured");
