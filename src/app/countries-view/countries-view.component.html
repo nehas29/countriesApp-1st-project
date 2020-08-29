@@ -40,8 +40,8 @@
             <br><span class="bolder">NumericCode</span><span > : {{country.numericCode}}</span></P>                         
             </div>  
             <div class="col">
-              <P class="textsize"><span class="bolder" *ngIf="country.currencies.length>0" >currencies : </span><span *ngFor="let currency of country.currencies;let first=first;let last=last">{{currency.name}}{{last ? '' : ', '}}</span> 
-              <br><span *ngIf="country.languages.length>0" class="bolder">Languages : </span><span *ngFor="let language of country.languages;let first=first;let last=last" >{{language.name}}{{last ? '' : ', '}}</span> 
+              <P class="textsize"><span class="bolder" *ngIf="country.currencies.length>0" >currencies : </span><span *ngFor="let currency of country.currencies;let first=first;let last=last"><a  [routerLink]="['/currency',currency.code || 'all']">{{currency.name}}{{last ? '' : ', '}}</a></span> 
+              <br><span *ngIf="country.languages.length>0" class="bolder">Languages : </span><span *ngFor="let language of country.languages;let first=first;let last=last" ><a  [routerLink]="['/language',language.iso639_1 || 'all']" >{{language.name}}{{last ? '' : ', '}}</a></span> 
               <br> <span *ngIf="country.regionalBlocs.length>0" class="bolder">RegionalBlocs : </span><span *ngFor="let bloc of country.regionalBlocs;let first=first;let last=last" >{{bloc.name}}{{last ? '' : ', '}}</span>
               
               </div>       
