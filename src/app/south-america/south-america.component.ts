@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import {Location} from '@angular/common'
+import { Country } from 'src/app/interfaces/country';
 
 @Component({
   selector: 'app-south-america',
@@ -7,8 +9,10 @@ import { ApiService } from '../api.service';
   styleUrls: ['./south-america.component.css']
 })
 export class SouthAmericaComponent implements OnInit {
-  public allAmericanCountries: any;
-  constructor(public apiService:ApiService) { }
+  public allAmericanCountries: Country[];
+  searchFilter: string;
+
+  constructor(public apiService:ApiService, public location:Location) { }
 
   ngOnInit() {
 
@@ -24,6 +28,11 @@ export class SouthAmericaComponent implements OnInit {
         console.log(error.errorMessage)
       }
     )
+  }
+
+  public goBackToPreviousPage():any{
+
+    this.location.back();
   }
 
 }

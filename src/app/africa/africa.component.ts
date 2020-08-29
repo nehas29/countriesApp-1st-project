@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Country } from 'src/app/interfaces/country';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-africa',
@@ -11,7 +12,7 @@ export class AfricaComponent implements OnInit {
   public allAfricanCountries: Country[];
   searchFilter: string;
   
-  constructor(public apiService:ApiService) { }
+  constructor(public apiService:ApiService, public location:Location) { }
 
   ngOnInit() {
   
@@ -28,6 +29,11 @@ export class AfricaComponent implements OnInit {
       }
     )
 
+  }
+
+  public goBackToPreviousPage():any{
+
+    this.location.back();
   }
 
 }

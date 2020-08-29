@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Country } from 'src/app/interfaces/country';
-
+import {Location} from '@angular/common'
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class AsiaComponent implements OnInit {
   searchFilter: string;
   
 
-  constructor(public apiService:ApiService) { 
+  constructor(public apiService:ApiService, public location:Location) { 
     console.log("api service called")
   }
 
@@ -32,6 +32,11 @@ export class AsiaComponent implements OnInit {
       }
     )
     
+  }
+
+  public goBackToPreviousPage():any{
+
+    this.location.back();
   }
 
 // get counteries(){
